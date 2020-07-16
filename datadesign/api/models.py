@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class User(models.Model):
     name = models.CharField('Name', max_length=50)
@@ -22,8 +21,8 @@ class Event(models.Model):
     data = models.TextField('Data')
     arquivado = models.BooleanField('Archived')
     date = models.DateField('Date',auto_now=True)
-    agent_id = models.ForeignKey(Agent, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Group(models.Model):
@@ -31,5 +30,5 @@ class Group(models.Model):
 
 
 class GroupUser(models.Model):
-    group_id = models.ForeignKey(Group, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
