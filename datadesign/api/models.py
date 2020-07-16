@@ -23,12 +23,12 @@ class Event(models.Model):
     arquivado = models.BooleanField('Archived')
     date = models.DateField('Date',auto_now=True)
     agent_id = models.ForeignKey(Agent, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(user, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Group(models.Model):
-    raise NotImplementedError
+    name = models.CharField('Name', max_length=50) 
 
 
 class GroupUser(models.Model):
-    raise NotImplementedError
+
