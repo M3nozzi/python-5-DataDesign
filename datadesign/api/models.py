@@ -18,7 +18,12 @@ class Agent(models.Model):
 
 
 class Event(models.Model):
-    raise NotImplementedError
+    level = models.CharField('Level', max_length=20)
+    data = models.TextField('Data')
+    arquivado = models.BooleanField('Archived')
+    date = models.DateField('Date',auto_now=True)
+    agent_id = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(user, on_delete=models.CASCADE)
 
 
 class Group(models.Model):
