@@ -10,7 +10,11 @@ class User(models.Model):
 
 
 class Agent(models.Model):
-    raise NotImplementedError
+    name = models.CharField('Name', max_length=50)
+    status = models.BooleanField('Status')
+    env = models.CharField('Env', max_length=20)
+    version = models.CharField('Version', max_length=5)
+    address = models.GenericIPAddressField('IP Address', max_length=39)
 
 
 class Event(models.Model):
